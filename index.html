@@ -5,12 +5,92 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Guess the Animal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   <!--<link rel="stylesheet" type="text/css" media="screen" href="main.css" />--> 
-    <script src="Psychic-Game\assets\javascript\game.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="Psychic-Game\assets\css" />
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script src="assets\javascript\game.js"></script>
 </head>
-<body>
-
         <h1>Guess the Animal</h1>
+<body>
+       <div>
 
+            <p id="directions-text"></p>
+            <p id="userchoice-text"></p>
+            <p id="computerchoice-text"></p>
+            <p id="wins-text"></p>
+            <p id="losses-text"></p>
+            <p id="ties-text"></p>
+       </div>
+<script>
+var directionsText = document.getElementById("directions-text");
+ var directionsText = document.getElementById("directions-text");
+    var userChoiceText = document.getElementById("userchoice-text");
+    var computerChoiceText = document.getElementById("computerchoice-text");
+    var winsText = document.getElementById("wins-text");
+    var lossesText = document.getElementById("losses-text");
+    var tiesText = document.getElementById("ties-text");
+
+ document.onkeyup = function(event) {
+
+var animals= [
+    "alligator",	"ant",	"bear",	"bee",	"bird",	"camel",	"cat",	"cheetah",	"chicken",	"chimpanzee",
+    "cow",	"crocodile",	"deer",	"dog",	"dolphin",	"duck",	"eagle",	"elephant",	"fish",	"fly",
+    "fox",	"frog",	"giraffe",	"goat",	"goldfish",	"hamster",	"hippopotamus",	"horse",	"kangaroo",	"kitten",
+    "lion",	"lobster",	"monkey",	"octopus",	"owl",	"panda",	"pig",	"puppy",	"rabbit",	"rat",
+    "scorpion",	"seal",	"shark",	"sheep",	"snail",	"snake",	"spider",	"squirrel",	"tiger",	"turtle",
+    "wolf",	"zebra",
+        ];
+       var Animal = animals[Math.floor(Math.random() * animals.length)];
+       console.log( Animal);
+      var line = [];
+      var guessletter=[]
+      
+      console.log( line);
+      console.log( guess)
+      
+
+    for (var i = 0; i < Animal.length; i++) {
+    line[i] = "_";
+
+    }
+    var Letters = Animal.length;
+    for( ;Letters>0;){
+   //alert(line.join(" "));
+   
+   //alert("You have "+Letters+" guesses");
+   
+   //alert("you have guess: "+guessletter);
+  
+   var guess = event.key
+  
+   guessletter.push(guess);
+   if (guess===null) {
+       break;
+   }
+ else if (guess.length !== 1) {
+ //alert("one letter at the time");
+ 
+ }
+   else {
+       for (var h = 0; h < Animal.length; h++) {
+ if (Animal[h] === guess) {
+     line[h] = guess;
+ Letters--;
+ }
+ }
+ 
+  }
+
+}
+directionsText.textContent = "";
+userChoiceText.textContent = "you have guess: " + guess;
+computerChoiceText.textContent = "you have guess: " + guessletter;
+winsText.textContent = "You have "+Letters+" guesses";
+lossesText.textContent = line.join(" ")
+tiesText.textContent = "one letter at the time";
+}
+</script>
+       
 </body>
 </html>

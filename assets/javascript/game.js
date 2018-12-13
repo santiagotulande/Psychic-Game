@@ -10,6 +10,7 @@ var animals= [
        console.log( Animal);
       var line = [];
       var guessletter=[]
+      
       console.log( line);
       console.log( guess)
       
@@ -39,4 +40,5 @@ var animals= [
  }
  }
   }
+
 }
